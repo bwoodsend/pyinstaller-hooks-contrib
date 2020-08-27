@@ -10,24 +10,23 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import is_module_satisfies
+from PyInstaller.utils.hooks import is_module_satisfies, \
+    collect_submodules, collect_data_files
 
-if is_module_satisfies("tensorflow < 2.2.0"):
-    # Pre 2.2.0: add tensorflow_core to hidden imports and let
-    # the tensorflow_core.python hook collect submodules and data
-    # from tensorflow_core
-    hiddenimports = ['tensorflow_core']
+if is_module_satisfies("tensorflow < 1.15.0"):
+    # 1.14.x and earlier: collect everything from tensorflow
+    hiddenimports = collect_submodules('tensorflow')
+    datas = collect_data_files('tensorflow')
+elif is_module_satisfies("tensorflow >= 1.15.0") and is_module_satisfies("tensorflow < 2.2.0"):
+    # 1.15.x - 2.1.x: collect everything from tensorflow_core
+    hiddenimports = collect_submodules('tensorflow_core')
+    datas = collect_data_files('tensorflow_core')
 
-    # 1.15.x: hidden import for tensorflow_core fails to pull in
-    # tensorflow_core.python, so we need to add it manually. And even
-    # then, we fail to collect a specific module...
+    # Under 1.15.x, we seem to fail collecting a specific submodule,
+    # and need to add it manually...
     if is_module_satisfies("tensorflow >= 1.15.0") and is_module_satisfies("tensorflow < 2.0.0"):
-        hiddenimports += ['tensorflow_core.python']
         hiddenimports += ['tensorflow_core._api.v1.compat.v2.summary.experimental']
 else:
-    # 2.2.0 and newer: tensorflow_core is gone; collect submodules
-    # and data from tensorflow itself
-    from PyInstaller.utils.hooks import collect_submodules, collect_data_files
-
+    # 2.2.0 and newer: collect everything from tensorflow again
     hiddenimports = collect_submodules('tensorflow')
     datas = collect_data_files('tensorflow')
