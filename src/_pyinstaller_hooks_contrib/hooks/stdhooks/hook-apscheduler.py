@@ -16,7 +16,6 @@ stores and triggers.
 This hook was tested against APScheduler 3.6.3.
 """
 
-from PyInstaller.utils.hooks import collect_submodules, copy_metadata
+from PyInstaller.utils.hooks import collect_submodules
 
-datas = copy_metadata('APScheduler')
 hiddenimports = collect_submodules('apscheduler')

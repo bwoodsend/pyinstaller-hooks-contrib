@@ -12,6 +12,5 @@
 
 # Hook for the pyopencl module: https://github.com/pyopencl/pyopencl
 
-from PyInstaller.utils.hooks import copy_metadata, collect_data_files
-datas = copy_metadata('pyopencl')
-datas += collect_data_files('pyopencl')
+from PyInstaller.utils.hooks import collect_data_files
+datas = collect_data_files('pyopencl')

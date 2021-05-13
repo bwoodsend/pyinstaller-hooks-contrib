@@ -10,9 +10,9 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import collect_data_files, copy_metadata
+from PyInstaller.utils.hooks import collect_data_files
 
 # pycountry requires the ISO databases for country data.
 # Tested v1.15 on Linux/Ubuntu.
 # https://pypi.python.org/pypi/pycountry
-datas = copy_metadata('pycountry') + collect_data_files('pycountry')
+datas = collect_data_files('pycountry')

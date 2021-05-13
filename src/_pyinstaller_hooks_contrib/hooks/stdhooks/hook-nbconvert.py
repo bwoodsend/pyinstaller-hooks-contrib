@@ -10,9 +10,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # ------------------------------------------------------------------
 
-from PyInstaller.utils.hooks import collect_data_files, copy_metadata
+from PyInstaller.utils.hooks import collect_data_files
 
 datas = collect_data_files('nbconvert')
-
-# nbconvert uses entrypoints to read nbconvert.exporters from metadata file entry_points.txt.
-datas += copy_metadata('nbconvert')
