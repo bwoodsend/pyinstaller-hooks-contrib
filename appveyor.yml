@@ -96,7 +96,7 @@ install:
   # Install PyInstaller
   - pip install %INSTALL_URL%
 
-build: none
+build: Script
 
 test_script:
   - ps: |
