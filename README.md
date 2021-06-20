@@ -307,7 +307,7 @@ A brief checklist for before submitting your pull request:
 * [ ] All new Python files have [the appropriate copyright header](#add-the-copyright-header).
 * [ ] You have written a [news entry](#add-a-news-entry).
 * [ ] Your changes [satisfy the linter](#run-linter) (run `git diff -U0 master | flake8 --diff -`).
-
+* [ ] You have written tests (if possible) and linked to a successful CI build.
 
 ### Submit the pull request
 
