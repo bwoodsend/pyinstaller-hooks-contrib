@@ -76,8 +76,11 @@ You may skip the 2<sup>nd</sup> line if you have no intention of providing tests
 
 ### Add the hook
 
-Hooks live in the [src/_pyinstaller_hooks_contrib/hooks/stdhooks/](../master/src/_pyinstaller_hooks_contrib/hooks/stdhooks/) directory.
+Standard hooks live in the [src/_pyinstaller_hooks_contrib/hooks/stdhooks/](../master/src/_pyinstaller_hooks_contrib/hooks/stdhooks/) directory.
+Runtime hooks live in the [src/_pyinstaller_hooks_contrib/hooks/rthooks/](../master/src/_pyinstaller_hooks_contrib/hooks/rthooks/) directory.
 Simply copy your hook into there.
+If you're unsure if your hook is a runtime hook then it almost certainly is a standard hook.
+
 Please annotate (with comments) anything unusual in the hook.
 *Unusual* here is defined as any of the following:
 
@@ -121,7 +124,7 @@ replacing 2021 with the current year.
 </details>
 
 <details><summary>APL header for runtime hooks only.
-If you're unsure if your hook is a runtime hook then it almost certainly is a standard hook.</summary>
+Again, if you're unsure if your hook is a runtime hook then it'll be a standard hook.</summary>
 
 ```python
 # ------------------------------------------------------------------
