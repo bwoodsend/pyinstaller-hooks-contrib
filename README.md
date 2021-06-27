@@ -192,6 +192,7 @@ If need be, you can specify version constraints using `@importorskip('foo', minv
 if the library has changed significantly between versions.
 
 
+
 #### Run the test locally
 
 Running our full test suite is not recommended as it will spend a very long time testing code which you have not touched.
@@ -205,6 +206,13 @@ Or using full paths:
 ```
 pytest src/_pyinstaller_hooks_contrib/tests/test_libraries.py::test_foo
 ```
+
+
+#### Pin the test requirement
+
+Get the version of the package you are working with (`pip show foo`)
+and add it to the [requirements-test-libraries.txt](../master/requirements-test-libraries.txt) file.
+The requirements already in there should guide you on the syntax.
 
 
 #### Run the test on CI/CD
@@ -241,6 +249,7 @@ Its fields are as follows:
     * Set to `foo` to test the latest version of `foo`,
     * Set to `foo==1.2, foo==2.3` (note the comma) to test two different versions of `foo` in separate jobs,
     * Set to `foo bar` (note the lack of a comma) to test `foo` and `bar` in the same job,
+    You can generally just copy your own changes to the `requirements-test-libraries.txt` file into this box.
 3.  Which OS or OSs to run on
     * Set to `ubuntu` to test only `ubuntu`,
     * Set to `ubuntu, macos, windows` (order is unimportant) to test all three OSs.
@@ -312,7 +321,7 @@ A brief checklist for before submitting your pull request:
 * [ ] All new Python files have [the appropriate copyright header](#add-the-copyright-header).
 * [ ] You have written a [news entry](#add-a-news-entry).
 * [ ] Your changes [satisfy the linter](#run-linter) (run `git diff -U0 master | flake8 --diff -`).
-* [ ] You have written tests (if possible) and linked to a successful CI build.
+* [ ] You have written tests (if possible), [pinned the test requirement](#pin-the-test-requirement) and linked to a successful CI build.
 
 
 ### Submit the pull request
