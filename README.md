@@ -314,6 +314,7 @@ A brief checklist for before submitting your pull request:
 * [ ] Your changes [satisfy the linter](#run-linter) (run `git diff -U0 master | flake8 --diff -`).
 * [ ] You have written tests (if possible) and linked to a successful CI build.
 
+
 ### Submit the pull request
 
 Once you've done all the above, go ahead and create a pull request.
