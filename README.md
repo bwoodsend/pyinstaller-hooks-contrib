@@ -180,10 +180,10 @@ Navigate there and add something like the following, replacing all occurrences o
 def test_foo(pyi_builder):
     pyi_builder.test_source("""
 
-	# Your test here!
+        # Your test here!
         import foo
 
-	foo.something_fooey()
+        foo.something_fooey()
 
     """)
 ```
