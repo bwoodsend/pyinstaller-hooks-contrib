@@ -61,7 +61,7 @@ If you wish to create a virtual environment then do it now before proceeding to 
 
 Install this repo in editable mode.
 This will overwrite your current installation.
-(Not that you can reverse this with `pip install --force-reinstall pyinstaller-hooks-contrib`).
+(Note that you can reverse this with `pip install --force-reinstall pyinstaller-hooks-contrib`).
 
 ```
 pip install -e .
