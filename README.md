@@ -229,6 +229,9 @@ https://github.com/billy-the-buffalo/pyinstaller-hooks-contrib/actions/workflows
 ```
 
 Find the **Run workflow** button and click on it.
+If you can't see the button,
+select the **Oneshot test** tab from the list of workflows on the left of the page
+and it should appear.
 A dialog should appear containing one drop-down menu and 5 line-edit fields.
 This dialog is where you specify what to test and which platforms and Python versions to test on.
 Its fields are as follows:
