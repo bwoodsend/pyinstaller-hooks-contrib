@@ -243,13 +243,14 @@ and it should appear.
 A dialog should appear containing one drop-down menu and 5 line-edit fields.
 This dialog is where you specify what to test and which platforms and Python versions to test on.
 Its fields are as follows:
+
 1.  A branch to run from. Set this to the branch which you are using (e.g. ``hook-for-foo``),
 2.  Which package(s) to install and their version(s).
     Which packages to test are inferred from which packages are installed.
+    You can generally just copy your own changes to the `requirements-test-libraries.txt` file into this box.
     * Set to `foo` to test the latest version of `foo`,
     * Set to `foo==1.2, foo==2.3` (note the comma) to test two different versions of `foo` in separate jobs,
     * Set to `foo bar` (note the lack of a comma) to test `foo` and `bar` in the same job,
-    You can generally just copy your own changes to the `requirements-test-libraries.txt` file into this box.
 3.  Which OS or OSs to run on
     * Set to `ubuntu` to test only `ubuntu`,
     * Set to `ubuntu, macos, windows` (order is unimportant) to test all three OSs.
