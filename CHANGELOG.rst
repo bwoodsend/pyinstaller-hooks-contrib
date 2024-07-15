@@ -1,3 +1,29 @@
+2024.8 (2024-07-15)
+-------------------
+
+Updated hooks
+~~~~~~~~~~~~~
+
+* Update ``hydra`` hook to include work-around for ``hydra``'s plugin
+  manager, which under python < 3.10 (still) uses deprecated PEP-302
+  that was removed from PyInstaller's ``PyiFrozenImporter`` in
+  PyInstaller 5.8. When building using python < 3.10 and PyInstaller >= 5.8,
+  the modules collected from ``hydra._internal.core_plugins`` and
+  ``hydra_plugins`` packages are now collected as source .py files only;
+  this way, they are handled by built-in python's finder/importer instead
+  of PyInstaller's ``PyiFrozenImporter``. (`#760
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/760>`_)
+
+
+Project & Process
+~~~~~~~~~~~~~~~~~
+
+* Released sdists and tagged GitHub source archives contain the changelog
+  entries
+  for their current release. (`#761
+  <https://github.com/pyinstaller/pyinstaller-hooks-contrib/issues/761>`_)
+
+
 2024.7 (2024-06-08)
 -------------------
 
